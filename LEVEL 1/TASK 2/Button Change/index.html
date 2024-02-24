@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Background Color Change</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: black;
+        }
+
+        button {
+            padding: 20px 40px;
+            font-size: 20px;
+            border-radius: 10px;
+            outline: 0;
+            border: 0;
+            letter-spacing: 2px;
+            font-weight: 600;
+            color: white;
+            cursor: pointer;
+        }
+
+        #Change-btn {
+            font-size: 5rem;
+            background-color: rgb(56, 56, 240);
+            box-shadow: 0 0 40px rgb(38, 38, 233);
+        }
+    </style>
+</head>
+
+<body>
+    <button id="Change-btn">Click Me !</button>
+    <script>
+        let btn = document.querySelector("#Change-btn");
+
+        btn.addEventListener("click", () => {
+            // Generate a random color
+            let randomColor = getRandomColor();
+
+            // Apply the random color to the button
+            btn.style.background = randomColor;
+            btn.style.boxShadow = `0 0 40px ${randomColor}`;
+            btn.style.transition = ".5s ease";
+        });
+
+        // Function to generate a random color in hex format
+        function getRandomColor() {
+            let letters = "0123456789ABCDEF";
+            let color = "#";
+            for (let i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+    </script>
+</body>
+
+</html>
